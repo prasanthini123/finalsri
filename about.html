@@ -1,0 +1,2088 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sri Vaasan Browsing & E-Sevai Maiyam | Aadhaar, PAN, Online Services</title>
+    <meta name="description" content="Sri Vaasan Browsing & E-Sevai Maiyam provides Aadhaar services, PAN card apply, online applications, printing, scanning and government e-sevai services at low cost.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1a5f7a;
+            --primary-dark: #0d3b4d;
+            --primary-light: #2a8fb5;
+            --secondary: #ff7b54;
+            --secondary-dark: #e86a3d;
+            --accent: #57cc99;
+            --accent-dark: #38a179;
+            --light: #f8f9fa;
+            --dark: #1a1a2e;
+            --gray: #6c757d;
+            --gray-light: #e9ecef;
+            --success: #28a745;
+            --warning: #ffc107;
+            --danger: #dc3545;
+            --gold: #ffd166;
+            --purple: #9d4edd;
+            --pink: #ff5d8f;
+            --shadow-sm: 0 2px 15px rgba(0, 0, 0, 0.08);
+            --shadow: 0 10px 40px rgba(0, 0, 0, 0.12);
+            --shadow-lg: 0 25px 60px rgba(0, 0, 0, 0.15);
+            --transition-fast: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            --border-radius: 16px;
+            --border-radius-lg: 24px;
+            --border-radius-xl: 32px;
+            --whatsapp: #25D366;
+            --glass-bg: rgba(255, 255, 255, 0.1);
+            --glass-border: rgba(255, 255, 255, 0.2);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.7;
+            color: var(--dark);
+            overflow-x: hidden;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            min-height: 100vh;
+            opacity: 0;
+            animation: fadeInBody 1s ease forwards;
+        }
+
+        @keyframes fadeInBody {
+            to {
+                opacity: 1;
+            }
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 30px;
+        }
+
+        /* Navigation - FIXED */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            z-index: 1000;
+            padding: 20px 0;
+            transition: var(--transition-fast);
+            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.08);
+            transform: translateY(-100%);
+            animation: slideDown 0.8s ease forwards 0.3s;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        @keyframes slideDown {
+            to {
+                transform: translateY(0);
+            }
+        }
+
+        .navbar.scrolled {
+            padding: 15px 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(30px);
+            -webkit-backdrop-filter: blur(30px);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 30px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            color: var(--primary);
+            font-size: 1.8rem;
+            font-weight: 900;
+            text-decoration: none;
+            position: relative;
+            z-index: 2;
+            transition: var(--transition);
+        }
+
+        .logo:hover {
+            transform: translateY(-2px);
+        }
+
+        .logo i {
+            margin-right: 12px;
+            font-size: 2.2rem;
+            background: linear-gradient(135deg, var(--secondary), var(--pink));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .logo span {
+           background: linear-gradient(rgb(0, 0, 71),rgb(2, 217, 255));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 900;
+            letter-spacing: -0.5px;
+        }
+
+        .logo .subtext {
+            font-size: 0.75rem;
+            color: var(--gray);
+            display: block;
+            margin-top: -3px;
+            font-weight: 500;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 5px;
+        }
+
+        .nav-link {
+            color: var(--primary);
+            text-decoration: none;
+            padding: 12px 25px;
+            border-radius: 50px;
+            transition: var(--transition-fast);
+            font-weight: 500;
+            position: relative;
+            overflow: hidden;
+            background: transparent;
+            border: 2px solid transparent;
+        }
+
+        .nav-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--secondary), var(--pink));
+            opacity: 0;
+            transition: var(--transition);
+            z-index: -1;
+        }
+
+        .nav-link:hover {
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(255, 123, 84, 0.3);
+        }
+
+        .nav-link:hover::before {
+            opacity: 1;
+        }
+
+        .nav-link.active {
+            background: linear-gradient(135deg, var(--secondary), var(--pink));
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 10px 30px rgba(255, 123, 84, 0.3);
+        }
+
+        .nav-link.active:hover {
+            transform: translateY(-3px);
+        }
+
+        /* Mobile Menu - FIXED */
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            background: none;
+            border: none;
+            width: 40px;
+            height: 40px;
+            position: relative;
+            z-index: 1001;
+            border-radius: 10px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            box-shadow: 0 5px 20px rgba(26, 95, 122, 0.3);
+            transition: var(--transition);
+        }
+
+        .hamburger:hover {
+            background: linear-gradient(135deg, var(--secondary), var(--pink));
+            transform: rotate(90deg);
+        }
+
+        .hamburger span {
+            display: block;
+            width: 24px;
+            height: 3px;
+            background: white;
+            border-radius: 3px;
+            transition: var(--transition-fast);
+            position: absolute;
+            left: 8px;
+        }
+
+        .hamburger span:nth-child(1) { top: 12px; }
+        .hamburger span:nth-child(2) { top: 18px; }
+        .hamburger span:nth-child(3) { bottom: 12px; }
+
+        .hamburger.active {
+            background: linear-gradient(135deg, var(--secondary), var(--pink));
+        }
+
+        .hamburger.active span:nth-child(1) {
+            top: 18px;
+            transform: rotate(45deg);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            bottom: 18px;
+            transform: rotate(-45deg);
+        }
+
+        /* About Hero Section */
+        .about-hero {
+            min-height: 60vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            padding: 150px 0 80px;
+            background: linear-gradient(rgba(26, 26, 46, 0.95), rgba(13, 59, 77, 0.9)), url(images/about_hero.png);
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+        }
+
+        .about-hero::before {
+           content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                45deg,
+                rgba(26, 95, 122, 0.4) 0%,
+                rgba(42, 143, 181, 0.3) 25%,
+                rgba(255, 123, 84, 0.35) 50%,
+                rgba(157, 78, 221, 0.3) 75%,
+                rgba(26, 95, 122, 0.4) 100%
+            );
+            animation: gradientShift 15s ease infinite;
+            background-size: 400% 400%;
+        }
+
+        @keyframes gradientShift {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        .about-hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+            animation: fadeInUp 1s ease-out 0.3s both;
+        }
+
+        .about-hero-title {
+            font-size: 4rem;
+            color: white;
+            margin-bottom: 20px;
+            line-height: 1.1;
+            font-weight: 900;
+            text-shadow: 0 5px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .about-hero-subtitle {
+            font-size: 1.3rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 40px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+            font-weight: 300;
+        }
+
+        .about-hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            padding: 12px 30px;
+            border-radius: 50px;
+            color: white;
+            font-weight: 600;
+            margin-bottom: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.9rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 60px;
+            flex-wrap: wrap;
+            animation: fadeInUp 1s ease-out 0.7s both;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 25px 20px;
+            min-width: 180px;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(20px);
+            border-radius: var(--border-radius-lg);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05));
+            z-index: -1;
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .stat-item:hover {
+            transform: translateY(-10px) scale(1.05);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+            background: rgba(255, 255, 255, 0.25);
+            border-color: rgba(255, 255, 255, 0.4);
+        }
+
+        .stat-item:hover::before {
+            opacity: 1;
+        }
+
+        .stat-item:hover .stat-number {
+            transform: scale(1.1);
+        }
+
+        .stat-item:nth-child(1):hover .stat-number {
+            background: linear-gradient(135deg, var(--gold), #ff9e00);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .stat-item:nth-child(2):hover .stat-number {
+            background: linear-gradient(135deg, var(--accent), #2ecc71);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .stat-item:nth-child(3):hover .stat-number {
+            background: linear-gradient(135deg, var(--purple), #8a2be2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .stat-item:nth-child(4):hover .stat-number {
+            background: linear-gradient(135deg, var(--secondary), #ff4d4d);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .stat-number {
+            font-size: 3.5rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--gold), white);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1;
+            margin-bottom: 10px;
+            transition: var(--transition);
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.9);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .stat-item:hover .stat-label {
+            color: white;
+            transform: translateY(2px);
+        }
+
+        .stat-item .stat-icon {
+            font-size: 1.5rem;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 15px;
+            display: block;
+            transition: var(--transition);
+        }
+
+        .stat-item:hover .stat-icon {
+            color: white;
+            transform: scale(1.2) rotate(10deg);
+        }
+
+        /* About Content Sections */
+        .about-section {
+            padding: 100px 0;
+            background: var(--light);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-subtitle {
+            display: inline-block;
+            color: var(--secondary);
+            font-weight: 700;
+            font-size: 1rem;
+            margin-bottom: 20px;
+            background: rgba(255, 123, 84, 0.1);
+            padding: 12px 30px;
+            border-radius: 50px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .section-title {
+            font-size: 3.2rem;
+            color: var(--dark);
+            margin-bottom: 30px;
+            line-height: 1.1;
+            position: relative;
+            font-weight: 900;
+            letter-spacing: -1px;
+        }
+
+        .section-title .highlight {
+            position: relative;
+            background: linear-gradient(135deg, var(--primary), var(--purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .section-description {
+            max-width: 700px;
+            margin: 0 auto;
+            color: var(--gray);
+            font-size: 1.2rem;
+            line-height: 1.8;
+            font-weight: 300;
+        }
+
+        /* Our Story Section */
+        .story-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .story-content h2 {
+            font-size: 2.5rem;
+            color: var(--dark);
+            margin-bottom: 25px;
+            font-weight: 800;
+            line-height: 1.3;
+        }
+
+        .story-content p {
+            color: var(--gray);
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .story-image {
+            position: relative;
+            border-radius: var(--border-radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .story-img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: var(--transition);
+        }
+
+        .story-image:hover .story-img {
+            transform: scale(1.05);
+        }
+
+        .story-badge {
+            position: absolute;
+            bottom: -20px;
+            right: -20px;
+            background: var(--secondary);
+            color: white;
+            padding: 25px;
+            border-radius: 50%;
+            width: 140px;
+            height: 140px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            box-shadow: var(--shadow);
+            z-index: 2;
+        }
+
+        .story-badge .years {
+            font-size: 2.5rem;
+            font-weight: 900;
+            line-height: 1;
+        }
+
+        .story-badge .label {
+            font-size: 0.9rem;
+            margin-top: 8px;
+            text-align: center;
+        }
+
+        /* Mission & Vision Section */
+        .mission-vision-section {
+            padding: 100px 0;
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .mission-vision-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url(images/home_hero.png);
+            background-size: cover;
+            background-position: center;
+            opacity: 0.1;
+        }
+
+        .mission-vision-section .section-title {
+            color: white;
+        }
+
+        .mission-vision-section .section-description {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .mission-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .mission-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: var(--border-radius-lg);
+            padding: 50px 40px;
+            text-align: center;
+            transition: var(--transition);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .mission-card:hover {
+            transform: translateY(-15px);
+            background: white;
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.2);
+        }
+
+        .mission-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            font-size: 2.2rem;
+            color: white;
+            transition: var(--transition);
+        }
+
+        .mission-card:hover .mission-icon {
+            background: linear-gradient(135deg, var(--secondary), var(--pink));
+            transform: rotate(10deg) scale(1.1);
+        }
+
+        .mission-card h3 {
+            font-size: 1.8rem;
+            color: var(--dark);
+            margin-bottom: 20px;
+            font-weight: 800;
+        }
+
+        .mission-card p {
+            color: var(--gray);
+            line-height: 1.6;
+        }
+
+        /* Values Section */
+        .values-section {
+            padding: 100px 0;
+            background: var(--light);
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .value-card {
+            background: white;
+            border-radius: var(--border-radius-lg);
+            padding: 50px 40px;
+            text-align: center;
+            transition: var(--transition);
+            box-shadow: var(--shadow);
+            border: 2px solid transparent;
+        }
+
+        .value-card:hover {
+            transform: translateY(-15px);
+            border-color: var(--secondary);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .value-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            font-size: 2.2rem;
+            color: white;
+            transition: var(--transition);
+        }
+
+        .value-card:hover .value-icon {
+            background: linear-gradient(135deg, var(--secondary), var(--pink));
+            transform: rotate(10deg) scale(1.1);
+        }
+
+        .value-card h3 {
+            font-size: 1.5rem;
+            color: var(--dark);
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .value-card p {
+            color: var(--gray);
+            line-height: 1.6;
+        }
+
+        /* Founder Section */
+        .founder-section {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        }
+
+        .founder-container {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .founder-image {
+            position: relative;
+            border-radius: var(--border-radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .founder-img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+        }
+
+        .founder-content {
+            padding: 40px;
+        }
+
+        .founder-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(135deg, var(--secondary), var(--primary));
+            color: white;
+            padding: 12px 25px;
+            border-radius: 50px;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .founder-name {
+            font-size: 3rem;
+            color: var(--dark);
+            margin-bottom: 10px;
+            font-weight: 800;
+        }
+
+        .founder-title {
+            font-size: 1.4rem;
+            color: var(--secondary);
+            margin-bottom: 30px;
+            font-weight: 600;
+        }
+
+        .founder-bio {
+            color: var(--gray);
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 30px;
+        }
+
+        .founder-contact {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .contact-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 15px 30px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .contact-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(26, 95, 122, 0.3);
+        }
+
+        .contact-btn.whatsapp {
+            background: var(--whatsapp);
+        }
+
+        @media (max-width: 992px) {
+            .founder-container {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .founder-name { font-size: 2.5rem; }
+        }
+
+        @media (max-width: 576px) {
+            .founder-name { font-size: 2rem; }
+        }
+
+        /* Why Choose Us Section */
+        .why-choose-section {
+            padding: 100px 0;
+            background: var(--light);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .feature-card {
+            background: white;
+            border-radius: var(--border-radius-lg);
+            padding: 50px 40px;
+            text-align: center;
+            transition: var(--transition);
+            box-shadow: var(--shadow);
+            border: 2px solid transparent;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-15px);
+            border-color: var(--secondary);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            font-size: 2.2rem;
+            color: white;
+            transition: var(--transition);
+        }
+
+        .feature-card:hover .feature-icon {
+            background: linear-gradient(135deg, var(--secondary), var(--pink));
+            transform: rotate(10deg) scale(1.1);
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            color: var(--dark);
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .feature-card p {
+            color: var(--gray);
+            line-height: 1.6;
+        }
+
+        /* CTA Section */
+        .about-cta {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #1a1a2e 0%, #1a1a2e 100%);
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .about-cta::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(255, 123, 84, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(26, 95, 122, 0.15) 0%, transparent 50%);
+        }
+
+        .about-cta h2 {
+            font-size: 3.2rem;
+            color: white;
+            margin-bottom: 30px;
+            font-weight: 900;
+            line-height: 1.1;
+            position: relative;
+            z-index: 2;
+        }
+
+        .about-cta p {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.8;
+            margin-bottom: 50px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 15px;
+            padding: 18px 45px;
+            background: white;
+            color: var(--dark);
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: var(--transition);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            border: 2px solid transparent;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--secondary), var(--pink));
+            opacity: 0;
+            transition: var(--transition);
+            z-index: -1;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-8px) scale(1.05);
+            box-shadow: 0 30px 70px rgba(0, 0, 0, 0.4);
+            color: white;
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .cta-button:hover::before {
+            opacity: 1;
+        }
+
+        .cta-button.whatsapp {
+            background: var(--whatsapp);
+            color: white;
+        }
+
+        .cta-button.whatsapp:hover {
+            background: #128C7E;
+        }
+
+        .cta-button i {
+            font-size: 1.3rem;
+            transition: var(--transition);
+        }
+
+        .cta-button:hover i {
+            transform: translateX(5px);
+        }
+
+        /* Footer */
+        .footer {
+            position: relative;
+            color: white;
+            padding: 80px 0 30px;
+            overflow: hidden;
+        }
+
+        .footer-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url(images/about_hero.png);
+            background-size: cover;
+            background-position: center;
+            z-index: -2;
+        }
+
+        .footer-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+           background:linear-gradient(rgba(17, 18, 18, 0.85),rgba(48, 55, 73, 0.85));
+            backdrop-filter: blur(1px);
+            z-index: -1;
+        }
+
+        .footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--secondary), var(--accent));
+            z-index: 1;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 50px;
+            margin-bottom: 60px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .footer-logo {
+            font-size: 2.2rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+        }
+
+        .footer-logo i {
+            color: var(--secondary);
+            margin-right: 12px;
+        }
+
+        .footer-logo span {
+            background: linear-gradient(135deg, var(--gold), white);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .footer-about p {
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 25px;
+            line-height: 1.8;
+        }
+
+        .footer-links h4,
+        .footer-services h4,
+        .footer-social h4 {
+            color: white;
+            margin-bottom: 25px;
+            font-size: 1.4rem;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-links h4::after,
+        .footer-services h4::after,
+        .footer-social h4::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--secondary);
+            border-radius: 3px;
+        }
+
+        .footer-links ul,
+        .footer-services ul {
+            list-style: none;
+        }
+
+        .footer-links li,
+        .footer-services li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a,
+        .footer-services a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: var(--transition-fast);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .footer-links a:hover,
+        .footer-services a:hover {
+            color: var(--gold);
+            transform: translateX(5px);
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .social-icons a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            font-size: 1.2rem;
+            transition: var(--transition);
+        }
+
+        .social-icons a:hover {
+            background: var(--secondary);
+            transform: translateY(-5px);
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+        }
+
+        .contact-item i {
+            color: var(--gold);
+            font-size: 1.2rem;
+            margin-top: 5px;
+        }
+
+        .contact-item h5 {
+            color: white;
+            margin-bottom: 5px;
+            font-size: 1rem;
+        }
+
+        .contact-item p,
+        .contact-item a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: var(--transition-fast);
+        }
+
+        .contact-item a:hover {
+            color: var(--gold);
+        }
+
+        .open-status {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #4cd964;
+            font-weight: 500;
+            padding: 12px 20px;
+            background: rgba(76, 217, 100, 0.15);
+            border-radius: var(--border-radius);
+            border-left: 4px solid #4cd964;
+            backdrop-filter: blur(5px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.95rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .footer-bottom p:first-child {
+            margin-bottom: 10px;
+        }
+
+        /* Floating Buttons */
+        .whatsapp-float {
+            position: fixed;
+            width: 70px;
+            height: 70px;
+            bottom: 30px;
+            right: 30px;
+            background: linear-gradient(135deg, var(--whatsapp), #128C7E);
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            font-size: 32px;
+            box-shadow: 0 15px 40px rgba(37, 211, 102, 0.5);
+            z-index: 999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+            animation: float 3s ease-in-out infinite;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0) rotate(0);
+            }
+            50% {
+                transform: translateY(-10px) rotate(5deg);
+            }
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1) rotate(10deg);
+            box-shadow: 0 20px 50px rgba(37, 211, 102, 0.7);
+        }
+
+        .back-to-top {
+            position: fixed;
+            bottom: 120px;
+            right: 30px;
+            width: 65px;
+            height: 65px;
+            background: linear-gradient(135deg, var(--secondary), var(--pink));
+            color: white;
+            border: none;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+            z-index: 997;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 15px 40px rgba(255, 123, 84, 0.4);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .back-to-top.show {
+            opacity: 1;
+            visibility: visible;
+            animation: float 3s ease-in-out infinite;
+            animation-delay: 0.5s;
+        }
+
+        .back-to-top:hover {
+            transform: scale(1.1);
+            box-shadow: 0 20px 50px rgba(255, 123, 84, 0.6);
+        }
+
+        /* Mobile Menu Overlay - FIXED */
+        .nav-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(5px);
+            z-index: 998;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+        }
+
+        .nav-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* Responsive Design - FIXED MOBILE MENU */
+        @media (max-width: 1200px) {
+            .about-hero-title {
+                font-size: 3.5rem;
+            }
+            .section-title {
+                font-size: 2.8rem;
+            }
+        }
+
+        @media (max-width: 992px) {
+            /* FIXED: Mobile menu from right side */
+            .nav-menu {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 300px;
+                height: 100vh;
+                background: rgba(255, 255, 255, 0.98);
+                backdrop-filter: blur(30px);
+                -webkit-backdrop-filter: blur(30px);
+                flex-direction: column;
+                align-items: center;
+                justify-content: flex-start;
+                padding-top: 120px;
+                transition: var(--transition);
+                box-shadow: -5px 0 50px rgba(0, 0, 0, 0.15);
+                z-index: 999;
+                margin: 0;
+            }
+            
+            .nav-menu.active {
+                right: 0;
+            }
+            
+            .nav-menu li {
+                width: 100%;
+                text-align: center;
+                margin-bottom: 15px;
+            }
+            
+            .nav-link {
+                margin: 0;
+                font-size: 1.2rem;
+                padding: 18px 40px;
+                width: 80%;
+                border-radius: 15px;
+                border: 2px solid transparent;
+                display: block;
+            }
+            
+            .hamburger {
+                display: block;
+            }
+            
+            .about-hero-title {
+                font-size: 3rem;
+            }
+            
+            .story-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .mission-cards,
+            .values-grid,
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .about-cta h2 {
+                font-size: 2.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .about-hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .about-hero-subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .section-title {
+                font-size: 2.3rem;
+            }
+            
+            .hero-stats {
+                gap: 20px;
+            }
+            
+            .stat-item {
+                min-width: 160px;
+                padding: 20px 15px;
+            }
+            
+            .stat-number {
+                font-size: 3rem;
+            }
+            
+            .about-cta h2 {
+                font-size: 2.5rem;
+            }
+            
+            .cta-button {
+                width: 100%;
+                max-width: 300px;
+                justify-content: center;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            /* Mobile menu adjustments */
+            .nav-menu {
+                width: 280px;
+            }
+            
+            .nav-link {
+                padding: 16px 30px;
+                font-size: 1.1rem;
+                margin-left: 30px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .container, .nav-container {
+                padding: 0 20px;
+            }
+            
+            .about-hero-title {
+                font-size: 2rem;
+            }
+            
+            .about-hero-badge {
+                padding: 10px 25px;
+                font-size: 0.8rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .stat-item {
+                min-width: 140px;
+                padding: 15px 10px;
+            }
+            
+            .stat-number {
+                font-size: 2.5rem;
+            }
+            
+            .about-cta h2 {
+                font-size: 2rem;
+            }
+            
+            .about-cta p {
+                font-size: 1rem;
+            }
+            
+            .whatsapp-float {
+                width: 60px;
+                height: 60px;
+                font-size: 28px;
+                bottom: 20px;
+                right: 20px;
+            }
+            
+            .back-to-top {
+                width: 55px;
+                height: 55px;
+                font-size: 1.3rem;
+                bottom: 100px;
+                right: 20px;
+            }
+            
+            /* Mobile menu for small screens */
+            .nav-menu {
+                width: 100%;
+                max-width: 280px;
+            }
+        }
+
+        /* Smooth Scrollbar */
+        ::-webkit-scrollbar {
+            width: 12px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(180deg, var(--primary), var(--secondary));
+            border-radius: 10px;
+            transition: var(--transition-fast);
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(180deg, var(--primary-dark), var(--secondary-dark));
+        }
+
+        ::selection {
+            background: rgba(26, 95, 122, 0.3);
+            color: var(--primary-dark);
+        }
+
+        /* Additional Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <i class="fas fa-globe"></i>
+                <div>
+                    <span>Sri Vaasan</span>
+                    <div class="subtext">Browsing & E-Sevai Maiyam</div>
+                </div>
+            </a>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="services.html" class="nav-link">Services</a></li>
+                <li><a href="about.html" class="nav-link active">About Us</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+            </ul>
+            <button class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="nav-overlay"></div>
+
+    <!-- About Hero Section -->
+    <section class="about-hero">
+        <div class="container about-hero-content">
+            <div class="about-hero-badge">
+                <i class="fas fa-award"></i> 
+               Serving Kumbakonam Since 2013
+            </div>
+            
+            <h1 class="about-hero-title">
+                  Our Story <span style="color: var(--gold);">& Journey</span> 
+
+             
+            </h1>
+            
+            <p class="about-hero-subtitle">
+               For over a decade, Sri Vaasan Browsing & E-Sevai Maiyam has been Kumbakonam's trusted digital solution center, empowering thousands with accessible technology services.
+            </p>
+            
+            <!-- <div class="hero-stats" >
+                <div class="stat-item">
+                    <i class="fas fa-calendar-alt stat-icon"></i>
+                    <div class="stat-number">13+</div>
+                    <div class="stat-label">Years Serving</div>
+                </div>
+                <div class="stat-item">
+                    <i class="fas fa-users stat-icon"></i>
+                    <div class="stat-number">5000+</div>
+                    <div class="stat-label">Happy Customers</div>
+                </div>
+                <div class="stat-item">
+                    <i class="fas fa-tools stat-icon"></i>
+                    <div class="stat-number">60+</div>
+                    <div class="stat-label">Services Offered</div>
+                </div>
+                <div class="stat-item">
+                    <i class="fas fa-check-circle stat-icon"></i>
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">Customer Satisfaction</div>
+                </div>
+            </div> -->
+        </div>
+    </section>
+
+    <!-- Our Story Section -->
+    <section class="about-section">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-subtitle" data-aos="fade-up">Our Story</div>
+                <h2 class="section-title" data-aos="fade-up">Building <span class="highlight">Trust</span> Since 2013</h2>
+            </div>
+            <div class="story-container" data-aos="fade-up">
+                <div class="story-content">
+                    <h2>Our Journey of Excellence</h2>
+                    <p>Founded in 2013 by Mr. K. Vaasan, Sri Vaasan Browsing & E-Sevai Maiyam began as a small internet browsing center with just two computers. Recognizing the growing need for digital services in our community, we evolved to become Kumbakonam's premier one-stop solution for all digital and document needs.</p>
+                    <p>What began as a small internet browsing center with just two computers has grown into a trusted, one-stop destination for digital and documentation services in our community.</p>
+                    <p>Today, we operate as a comprehensive digital solutions hub, offering more than 60 premium services. Our journey reflects our commitment to embracing technological advancements while preserving the personal touch that our customers truly value.We proudly serve thousands of satisfied customers — from students applying for competitive exams to families and businesses seeking government documentation and digital assistance. Our success is built on trust, reliability, and an unwavering commitment to customer satisfaction.</p>
+                </div>
+                
+                <div class="story-image" data-aos="fade-up">
+                    <img src="images/company.jpeg" 
+                         alt="Sri Vaasan Browsing Centre Interior" class="story-img">
+                    <div class="story-badge">
+                        <span class="years">13+</span>
+                        <span class="label">Years Serving</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission & Vision Section -->
+    <section class="mission-vision-section" data-aos="fade-up">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-subtitle" style="background: rgba(255,255,255,0.2); color: white;">Our Purpose</div>
+                <h2 class="section-title">Mission & Vision</h2>
+                <p class="section-description">Guiding principles that drive everything we do at Sri Vaasan</p>
+            </div>
+            
+            <div class="mission-cards">
+                <div class="mission-card">
+                    <div class="mission-icon">
+                        <i class="fas fa-bullseye"></i>
+                    </div>
+                    <h3>Our Mission</h3>
+                    <p>To provide accessible, reliable, and affordable digital solutions that empower individuals and businesses in Kumbakonam. We aim to bridge the digital divide by offering comprehensive services with expert guidance.</p>
+                </div>
+                
+                <div class="mission-card">
+                    <div class="mission-icon">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <h3>Our Vision</h3>
+                    <p>To be the most trusted and preferred digital solutions provider in Tamil Nadu, known for our innovation, reliability, and exceptional customer service.</p>
+                </div>
+                
+                <div class="mission-card">
+                    <div class="mission-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3>Our Promise</h3>
+                    <p>We commit to providing 100% reliable services with transparent pricing, expert assistance, and timely delivery. Your trust is our priority.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Core Values Section -->
+    <section class="values-section" data-aos="fade-up">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-subtitle">Our Values</div>
+                <h2 class="section-title">Core <span class="highlight">Principles</span></h2>
+                <p class="section-description">The principles that define how we serve our community</p>
+            </div>
+            
+            <div class="values-grid">
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Community First</h3>
+                    <p>We prioritize our community's needs above all else, ensuring our services are accessible and beneficial to everyone in Kumbakonam.</p>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Trust & Reliability</h3>
+                    <p>Building trust through consistent, reliable service has been our foundation for over 10 years of operation.</p>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3>Patient Guidance</h3>
+                    <p>We believe in patiently guiding every customer through their digital journey, no matter their level of technical knowledge.</p>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3>Service with Heart</h3>
+                    <p>We treat every customer like family, understanding their unique situations and providing personalized solutions.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Founder Section -->
+    <section class="founder-section">
+        <div class="container">
+            <div class="founder-container">
+                <div class="founder-image" data-aos="fade-up">
+                    <img src="images/vaasan.jpeg" 
+                         alt="Mr. K. Vaasan" class="founder-img">
+                </div>
+                
+                <div class="founder-content" data-aos="fade-up"> 
+                    <div class="founder-badge">
+                        <i class="fas fa-award"></i>
+                        Founder & CEO
+                    </div>
+                    
+                    <h2 class="founder-name">Mr. K. Vaasan</h2>
+                    <h3 class="founder-title">Visionary Leader & Community Builder</h3>
+                    
+                    <div class="founder-bio">
+                        <p>With over a decade of experience in digital services, Mr. Vaasan has built Sri Vaasan Browsing Centre into Kumbakonam's most trusted community service provider.</p>
+                        <p>His unique combination of technical expertise and deep community understanding has helped thousands of citizens navigate digital documentation and government services with ease.</p>
+                        <p>Under his leadership, we've maintained our commitment to making technology accessible to everyone, regardless of their technical knowledge or background.</p>
+                    </div>
+                    
+                    <div class="founder-contact">
+                        <a href="tel:+919944558484" class="contact-btn">
+                            <i class="fas fa-phone"></i> Call Now
+                        </a>
+                        <a href="https://wa.me/919944558484" class="contact-btn whatsapp" target="_blank">
+                            <i class="fab fa-whatsapp"></i> WhatsApp
+                        </a>
+                        <a href="mailto:srivaasanbrowsing@gmail.com" class="contact-btn">
+                            <i class="fas fa-envelope"></i> Email
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section class="why-choose-section" data-aos="fade-up">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-subtitle">Why Choose Us</div>
+                <h2 class="section-title">The <span class="highlight">Sri Vaasan</span> Advantage</h2>
+                <p class="section-description">What makes us the preferred choice for thousands in Kumbakonam</p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-history"></i>
+                    </div>
+                    <h3>13+ Years of Trust</h3>
+                    <p>Over a decade of serving Kumbakonam has given us unmatched experience in understanding and meeting community needs.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <h3>Verified & Authorized</h3>
+                    <p>We are authorized service providers for UIDAI, NSDL, and various government portals with complete transparency.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-user-graduate"></i>
+                    </div>
+                    <h3>Expert Guidance</h3>
+                    <p>Our team undergoes regular training to stay updated with the latest government procedures and technologies.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3>Quick Service</h3>
+                    <p>Most services are completed within 30 minutes, saving you time and multiple visits to government offices.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-rupee-sign"></i>
+                    </div>
+                    <h3>Affordable Pricing</h3>
+                    <p>We keep our service charges minimal, focusing on accessibility rather than excessive profits.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <h3>Tamil Support</h3>
+                    <p>We communicate in Tamil and English, ensuring clear understanding for all our customers.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="about-cta" data-aos="fade-up">
+        <div class="container">
+            <h2>Ready to Experience Premium Service?</h2>
+            <p>Join thousands of satisfied customers who trust Sri Vaasan Browsing & E-Sevai Maiyam for their digital and document needs. Get expert assistance today!</p>
+            
+            <div class="cta-buttons">
+                <a href="tel: +919944558484" class="cta-button">
+                    <i class="fas fa-phone"></i> Call Now: +91 9944558484
+                </a>
+                <a href="https://wa.me/919944558484?text=Hello%20Sri%20Vaasan%20Browsing%20Centre%2C%20I%20would%20like%20to%20know%20more%20about%20your%20services" 
+                   class="cta-button whatsapp" target="_blank">
+                    <i class="fab fa-whatsapp"></i> WhatsApp Us
+                </a>
+                <a href="services.html" class="cta-button">
+                    <i class="fas fa-list"></i> Explore Services
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" id="contact">
+        <!-- Background Image with Blur Effect -->
+        <div class="footer-bg"></div>
+        <div class="footer-overlay"></div>
+        
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <div  class="logo">
+                        <i class="fas fa-globe"></i>
+                        <span>Sri Vaasan</span>
+                    </div>
+                    <p>Your trusted one-stop solution for all digital and document services in Kumbakonam since 2013. We pride ourselves on delivering fast, reliable, and affordable services to our community.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/vaasanbrowsing?utm_source=qr&igsh=ZXllZmliaHY2azB4"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html"><i class="fas fa-chevron-right"></i> Home</a></li>
+                        <li><a href="services.html"><i class="fas fa-chevron-right"></i> Services</a></li>
+                       
+                        <li><a href="about.html"><i class="fas fa-chevron-right"></i> About Us</a></li>
+                        <li><a href="contact.html"><i class="fas fa-chevron-right"></i> Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-services">
+                    <h4>Popular Services</h4>
+                    <ul>
+                        <li><a href="services.html#aadhar"><i class="fas fa-chevron-right"></i> Aadhar Update</a></li>
+                        <li><a href="services.html#printing"><i class="fas fa-chevron-right"></i> Photo Printing</a></li>
+                        <li><a href="services.html#govt"><i class="fas fa-chevron-right"></i> PAN Card</a></li>
+                        <li><a href="services.html#computer"><i class="fas fa-chevron-right"></i> Internet Browsing</a></li>
+                        <li><a href="services.html#xerox"><i class="fas fa-chevron-right"></i> Document Xerox</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-social">
+                    <h4>Contact Us</h4>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <h5>Our Location</h5>
+                                <p>1A, Ramasamy Kovil East Street<br>Kumbakonam, Tamil Nadu - 612001</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <div>
+                                <h5>Call Us</h5>
+                                <p><a href="tel: +919944558484">+91 9944558484</a></p>
+                                <!-- <p><a href="tel:+914352123456">+91 4352 123456</a></p> -->
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <i class="fas fa-clock"></i>
+                            <div>
+                                <h5>Working Hours</h5>
+                                <p>Mon-Sat: 9:30 AM To 2:30 PM -3.30 PM To 9.00 PM <br>Sunday: Holiday</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="open-status">
+                        <i class="fas fa-circle"></i> <span id="current-status">Now Open: 9:30 AM - 9:00 PM</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 Sri Vaasan Browsing & E-Sevai Maiyam. All rights reserved.</p>
+                <p>Your trusted digital solution center in Kumbakonam |  Serving the community </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating Buttons -->
+    <a href="https://wa.me/919944558484?text=Hello%20Sri%20Vaasan%20Browsing%20Centre%2C%20I%20would%20like%20to%20know%20more%20about%20your%20services" class="whatsapp-float" target="_blank" style="text-decoration: none;">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <button id="backToTop" class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // DOM Elements
+            const backToTopBtn = document.getElementById('backToTop');
+            const navbar = document.querySelector('.navbar');
+            const hamburger = document.querySelector('.hamburger');
+            const navMenu = document.querySelector('.nav-menu');
+            const navOverlay = document.querySelector('.nav-overlay');
+            const navLinks = document.querySelectorAll('.nav-link');
+
+            // Back to top button
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 300) {
+                    backToTopBtn.classList.add('show');
+                } else {
+                    backToTopBtn.classList.remove('show');
+                }
+                
+                // Navbar scroll effect
+                if (window.scrollY > 100) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+            });
+
+            backToTopBtn.addEventListener('click', function() {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+
+            // Mobile Menu Toggle - FIXED
+            hamburger.addEventListener('click', function() {
+                this.classList.toggle('active');
+                navMenu.classList.toggle('active');
+                navOverlay.classList.toggle('active');
+                document.body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : 'auto';
+            });
+
+            // Close menu when overlay is clicked
+            navOverlay.addEventListener('click', function() {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+                navOverlay.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            });
+
+            // Close menu when clicking nav links
+            navLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    hamburger.classList.remove('active');
+                    navMenu.classList.remove('active');
+                    navOverlay.classList.remove('active');
+                    document.body.style.overflow = 'auto';
+                    
+                    navLinks.forEach(item => item.classList.remove('active'));
+                    link.classList.add('active');
+                });
+            });
+
+            // Update open status - FIXED TIMING
+            function updateOpenStatus() {
+                const now = new Date();
+                const hours = now.getHours();
+                const minutes = now.getMinutes();
+                const day = now.getDay(); // 0 = Sunday, 1 = Monday, etc.
+                const statusElement = document.getElementById('current-status');
+                
+                let isOpen = false;
+                
+                // Check if it's Monday to Saturday (1-6)
+                if (day >= 1 && day <= 6) {
+                    // First session: 9:30 AM to 2:30 PM
+                    if ((hours > 9 || (hours === 9 && minutes >= 30)) && 
+                        (hours < 14 || (hours === 14 && minutes <= 30))) {
+                        isOpen = true;
+                    }
+                    // Second session: 3:30 PM to 9:00 PM
+                    else if ((hours > 15 || (hours === 15 && minutes >= 30)) && 
+                            (hours < 21 || (hours === 21 && minutes === 0))) {
+                        isOpen = true;
+                    }
+                }
+                
+                if (isOpen) {
+                    if ((hours > 9 || (hours === 9 && minutes >= 30)) && 
+                        (hours < 14 || (hours === 14 && minutes <= 30))) {
+                        statusElement.innerHTML = `Now Open: 9:30 AM - 2:30 PM (Morning Session)`;
+                    } else {
+                        statusElement.innerHTML = `Now Open: 3:30 PM - 9:00 PM (Evening Session)`;
+                    }
+                    statusElement.style.color = '#4cd964';
+                } else {
+                    // Show appropriate message
+                    if (day === 0) { // Sunday
+                        statusElement.innerHTML = 'Closed - Opens Monday 9:30 AM';
+                    } else if (hours < 9 || (hours === 9 && minutes < 30)) {
+                        statusElement.innerHTML = 'Closed - Opens at 9:30 AM';
+                    } else if ((hours >= 14 && minutes > 30) && (hours < 15 || (hours === 15 && minutes < 30))) {
+                        statusElement.innerHTML = 'Closed - Reopens at 3:30 PM';
+                    } else if (hours >= 21 || (hours === 21 && minutes > 0)) {
+                        if (day === 6) { // Saturday
+                            statusElement.innerHTML = 'Closed - Opens Monday 9:30 AM';
+                        } else {
+                            statusElement.innerHTML = 'Closed - Opens Tomorrow 9:30 AM';
+                        }
+                    } else {
+                        statusElement.innerHTML = 'Closed';
+                    }
+                    statusElement.style.color = '#ff6b6b';
+                }
+            }
+
+            updateOpenStatus();
+            setInterval(updateOpenStatus, 60000); // Update every minute
+
+            // Add hover effects to cards
+            const cards = document.querySelectorAll('.mission-card, .value-card, .feature-card, .stat-item');
+            cards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = this.classList.contains('stat-item') ? 'translateY(-10px) scale(1.05)' : 'translateY(-15px)';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0) scale(1)';
+                });
+            });
+
+            // Story image hover effect
+            const storyImage = document.querySelector('.story-img');
+            if (storyImage) {
+                storyImage.addEventListener('mouseenter', function() {
+                    this.style.transform = 'scale(1.05)';
+                });
+                
+                storyImage.addEventListener('mouseleave', function() {
+                    this.style.transform = 'scale(1)';
+                });
+            }
+        });
+    </script>
+     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+  AOS.init();
+</script>
+</body>
+</html>
